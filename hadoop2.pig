@@ -24,4 +24,4 @@ counted_locations = FOREACH grouped_data GENERATE group, COUNT(filtered_data)
 -- order data alphabetically
 sorted_data = ORDER counted_locations BY $0 ASC
 
-DUMP sorted_data
+DUMP sorted_data;
