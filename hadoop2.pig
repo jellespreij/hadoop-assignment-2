@@ -10,18 +10,18 @@ data = LOAD 'orders.csv' USING PigStorage(',') AS
     success: chararray
     reason: chararray
     turn_number: chararray
-)
+);
 
 -- filter data by the target "Holland"
-filtered_data = FILTER data BY target == "Holland"
+filtered_data = FILTER data BY target == "Holland";
 
 -- group data by location with the target "Holland"
-grouped_data = GROUP filtered_data BY(location, target)
+grouped_data = GROUP filtered_data BY(location, target);
 
 -- count how many times Holland was the target of that location
-counted_locations = FOREACH grouped_data GENERATE group, COUNT(filtered_data)
+counted_locations = FOREACH grouped_data GENERATE group, COUNT(filtered_data);
 
 -- order data alphabetically
-sorted_data = ORDER counted_locations BY $0 ASC
+sorted_data = ORDER counted_locations BY $0 ASC;
 
 DUMP sorted_data;
