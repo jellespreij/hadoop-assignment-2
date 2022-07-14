@@ -1,15 +1,15 @@
 -- load data
 data = LOAD 'orders.csv' USING PigStorage(',') AS
 (
-    game_id: chararray
-    unit_id: chararray
-    unit_order: chararray
-    location: chararray
-    target: chararray
-    destination: chararray
-    success: chararray
-    reason: chararray
-    turn_number: chararray
+    game_id: chararray,
+    unit_id: chararray,
+    unit_order: chararray,
+    location: chararray,
+    target: chararray,
+    destination: chararray,
+    success: chararray,
+    reason: chararray,
+    turn_number: chararray,
 );
 
 -- filter data by the target "Holland"
