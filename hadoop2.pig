@@ -1,7 +1,6 @@
 -- load data
-data = LOAD 'orders.csv' USING PigStorage(',') AS
-(
-    game_id: chararray,
+data = LOAD '/user/maria_dev/diplomacy/orders.csv' USING PigStorage(',') AS
+   (game_id: chararray,
     unit_id: chararray,
     unit_order: chararray,
     location: chararray,
@@ -9,11 +8,10 @@ data = LOAD 'orders.csv' USING PigStorage(',') AS
     destination: chararray,
     success: chararray,
     reason: chararray,
-    turn_number: chararray,
-);
+    turn_number: chararray);
 
 -- filter data by the target "Holland"
-filtered_data = FILTER data BY target == "Holland";
+filtered_data = FILTER data BY target == '"Holland"';
 
 -- group data by location with the target "Holland"
 grouped_data = GROUP filtered_data BY(location, target);
